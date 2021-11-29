@@ -76,7 +76,7 @@ namespace Saladpuk.EMVCo
             => Add(QrIdentifier.TransactionAmount, Math.Abs(amount).ToString("0.00"));
 
         public QrBuilder SetCountryCode(string code)
-            => Add(QrIdentifier.CountryCode, new RegionInfo(code).TwoLetterISORegionName);
+            => Add(QrIdentifier.CountryCode, new RegionInfo(code.ToUpper()).TwoLetterISORegionName);
 
         public QrBuilder SetCurrencyCode(CurrencyCode code)
             => Add(QrIdentifier.TransactionCurrency, ((int)code).ToString("000"));
